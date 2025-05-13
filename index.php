@@ -1,13 +1,15 @@
 <?php
 session_start();
+
 //checking if the user is logged in
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {header("Location: login.php");
 exit();
 }
 //get username
-$username =isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest'
+$username =isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
 
 //formatting date
+date_default_timezone_set('America/Edmonton');
 $date = date('l, F j, Y - g:i A');
 ?>
 
@@ -53,7 +55,8 @@ $date = date('l, F j, Y - g:i A');
   <body>
 
     <div class="welcome-box">
-      <h1>Welcome, <?php echo 
+      <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
+      <p>Today's date is <?php
   $username = $_SESSION ['username'];
         htmlspecialchars($username); ?>!</h1>
       <p>Today's date is <?php echo $date; ?></p>
