@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $inputPassword = $_POST["password"];
 }
   //check if the username and password are correct
-  if ($inputUsername == $username && $inputPassword == $password)
+  if ($inputUsername === $username && $inputPassword === $password)
   {
     $_SESSION['authenticated'] = true;
     $_SESSION['username'] = $username;
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['login_attempts']++;
     $error_message = "Invalid username or password. Attempt #" . $_SESSION['login_attempts'];
   }
-  }
+  
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2>Welcome to Ayan's Portal</h2>
       <?php if (isset($error_message)): ?>
         <p style="color: red text-align: center;"><?php echo $error_message; ?></p>
-      <?php endif;
+      <?php endif; ?>
     <form method="post" action= "login.php">
       <label>Username:</label><br>
       <input type="text" name="username"> required><br><br>
