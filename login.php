@@ -1,5 +1,30 @@
 <?php
 session_start();
+
+//login credentials
+$username = "ayan";
+$password = "ayan123";
+
+//check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $inputUsername = $_POST["username"];
+  $inputPassword = $_POST["password"];
+}
+  //check if the username and password are correct
+  if ($inputUsername == $username && $inputPassword == $password)
+  {
+    $_SESSION['authenticated'] = true;
+    $_SESSION['username'] = $username;
+    header("Location: index.php");
+    exit();
+  } else {
+    if (!isset($_SESSION['login_attempts'])) {
+      $_SESSION['login_attempts'] = 0;
+    }
+    $_SESSION['login_attempts']++;
+    $error_message = "Invalid username or password. Attempt #" . $_SESSION['login_attempts'];
+  }
+  }
 ?>
 
 <!DOCTYPE html>
