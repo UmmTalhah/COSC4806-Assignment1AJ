@@ -80,6 +80,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <body>
     <div class="login container">
     <h2>Welcome to Ayan's Portal</h2>
+      <?php if (isset($error_message)): ?>
+        <p style="color: red text-align: center;"><?php echo $error_message; ?></p>
+      <?php endif;
     <form method="post" action= "login.php">
       <label>Username:</label><br>
       <input type="text" name="username"> required><br><br>
