@@ -55,9 +55,7 @@ $date = date('l, F j, Y - g:i A');
   <body>
 
     <div class="welcome-box">
-      <h1>Welcome, <?php echo 
-  $username = $_SESSION ['username'];
-        htmlspecialchars($username); ?>!</h1>
+      <h1>Welcome, <?php echo htmlspecialchars($username); ?>!</h1>
       <p>Today's date is <?php echo $date; ?></p>
       <a href="logout.php">Logout</a>
       </div>
