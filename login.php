@@ -8,7 +8,7 @@ if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true){
 }
 
 //login credentials
-$username = "ayan";
+$username = "Ayan";
 $password = "ayan123";
 
 //check if the form was submitted
