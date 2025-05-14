@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+//redirecting authenticated user to index.php
+if (isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true){
+  header("Location: index.php");
+  exit();
+}
+
 //login credentials
 $username = "ayan";
 $password = "ayan123";
