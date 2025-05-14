@@ -9,7 +9,7 @@ $password = "ayan123";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $inputUsername = $_POST["username"];
   $inputPassword = $_POST["password"];
-}
+
   //check if the username and password are correct
   if ($inputUsername === $username && $inputPassword === $password)
   {
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['login_attempts']++;
     $error_message = "Invalid username or password. Attempt #" . $_SESSION['login_attempts'];
   }
-  
+}  
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <head>
     <title>Ayan's Secure Login</title>
     <style>
+      body {
       font-family: Arial, Helvetica, sans-serif;
       background-color: #f4f7f9;
       display: flex;
@@ -39,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       align-items: center;
       height: 100vh;
       }
-      .login container {
+      
+      .login-container {
         background-color: #ffffff;
         padding: 30px;
         border-radius: 12px;
@@ -78,14 +80,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
     </head>
   <body>
-    <div class="login container">
+    <div class="login-container">
     <h2>Welcome to Ayan's Portal</h2>
       <?php if (isset($error_message)): ?>
-        <p style="color: red text-align: center;"><?php echo $error_message; ?></p>
+        <p style="color: red; text-align: center;"><?php echo $error_message; ?></p>
       <?php endif; ?>
     <form method="post" action= "login.php">
       <label>Username:</label><br>
-      <input type="text" name="username"> required><br><br>
+      <input type="text" name="username" required><br><br>
       <label>Password:</label><br>
       <input type="password" name="password" required><br><br>
       <button type="submit"> Login </button>
